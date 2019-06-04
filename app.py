@@ -10,7 +10,7 @@ def main():
     api = Proxy()
     api.get_proxy()
     print('Checking proxy...')
-    api.check(CONNECTIONS=connection)
+    api.check(CONNECTIONS=int(connection))
     print('ending time', datetime.datetime.now())
 
 if __name__ == '__main__':
