@@ -44,6 +44,7 @@ def check():
 
 
 def turnOnFetch():
+    print('Turning on App')
     api = os.environ['API']
     appid = os.environ['APP_ID']
     worker = os.environ['WORKER']
@@ -58,6 +59,7 @@ def turnOnFetch():
 
 
 def turnOffFetch():
+    print('Turning off App')
     api = os.environ['API']
     appid = os.environ['APP_ID']
     worker = os.environ['WORKER']
