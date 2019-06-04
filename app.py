@@ -6,6 +6,8 @@ from flask import Flask
 from proxy import Proxy
 
 app = Flask(__name__)
+import schedule
+import time
 
 
 
@@ -45,4 +47,9 @@ def fetch():
 
 
 if __name__ == '__main__':
-    fetch_and_check()
+    schedule.every(1).minutes.do(fetch_and_check)
+    while True:
+        # Checks whether a scheduled task
+        # is pending to run or not
+        schedule.run_pending()
+        time.sleep(1)
