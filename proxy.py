@@ -1,15 +1,11 @@
 import concurrent
 import os
 import time
-import uuid
 from concurrent.futures.thread import ThreadPoolExecutor
 
 import pyrebase
 import requests
 import urllib3
-
-
-
 
 
 class Proxy(object):
@@ -92,7 +88,6 @@ class Proxy(object):
 
             time2 = time.time()
         print(f'Total time took for fetching proxies {time2 - time1:.2f} s')
-        self.check()
 
     def check(self, CONNECTIONS=10):
         out = []
@@ -110,7 +105,6 @@ class Proxy(object):
                     data = str(type(exc))
                 finally:
                     out.append(data)
-
                     print(str(len(out)), end="\r")
 
             time2 = time.time()
