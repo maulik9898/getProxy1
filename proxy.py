@@ -33,7 +33,6 @@ class Proxy(object):
         pl = []
         url = p
         resp = requests.get(url)
-        print(resp.status_code)
         if 'error' not in resp.json():
             pl.append(resp.json())
             proxy = resp.json()['ip'] + ':' + str(resp.json()['port'])
@@ -79,7 +78,7 @@ class Proxy(object):
                 try:
                     data = future.result()
                     if data is not 'error':
-                        print(data.json()['ip'] + ':' + str(data.json()['port']))
+                        print(data)
                     else:
                         print('error')
                     # do json processing here
@@ -103,7 +102,7 @@ class Proxy(object):
                     data = future.result()
                 except Exception as exc:
                     data = str(type(exc))
-                
+
             time2 = time.time()
 
         plist = self.db.child('ip').get()
