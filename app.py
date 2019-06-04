@@ -1,7 +1,8 @@
 import datetime
 import os
-import sys
+import time
 
+import schedule
 from flask import Flask
 
 from proxy import Proxy
@@ -33,25 +34,23 @@ def fetch():
     return {"code": 200}
 
 
-# def check():
-#     print('Checking Proxy...')
-#     connection = os.environ['conn']
-#     print('starting time', datetime.datetime.now())
-#     api = Proxy()
-#     api.get_proxy()
-#     print('ending time', datetime.datetime.now())
-#     print('Done checking Proxy')
-#     return {"code": 200}
+def check():
+    print('Checking Proxy...')
+    connection = os.environ['conn']
+    print('starting time', datetime.datetime.now())
+    api = Proxy()
+    api.get_proxy()
+    print('ending time', datetime.datetime.now())
+    print('Done checking Proxy')
+    return {"code": 200}
 
 
 if __name__ == '__main__':
-    # schedule.every(1).minutes.do(fetch_and_check)
-    # while True:
-    #     # Checks whether a scheduled task
-    #     # is pending to run or not
-    #     schedule.run_pending()
-    #     time.sleep(10)
 
+    schedule.every(2).minutes.do(check)
+    while True:
+        # Checks whether a scheduled task
+        # is pending to run or not
+        schedule.run_pending()
+        time.sleep(10)
     fetch_and_check()
-    python = sys.executable
-    os.execl(python, python, *sys.argv)

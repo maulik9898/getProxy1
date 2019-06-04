@@ -108,5 +108,5 @@ class Proxy(object):
         print('Total active Proxies : ', len(plist.val()))
         print(f'Time took to check proxies {time2 - time1:.2f} s')
 
-
-
+    def getdb(self):
+        return self.db
