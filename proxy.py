@@ -103,10 +103,7 @@ class Proxy(object):
                     data = future.result()
                 except Exception as exc:
                     data = str(type(exc))
-                finally:
-                    out.append(data)
-                    print(str(len(out)), end="\r")
-
+                
             time2 = time.time()
 
         plist = self.db.child('ip').get()
