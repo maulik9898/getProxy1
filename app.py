@@ -36,7 +36,7 @@ def check():
     connection = os.environ['conn']
     print('starting time', datetime.datetime.now())
     api = Proxy()
-    api.get_proxy()
+    api.check(CONNECTION=connection)
     print('ending time', datetime.datetime.now())
     print('Done checking Proxy')
     return {"code": 200}
