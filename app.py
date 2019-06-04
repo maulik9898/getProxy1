@@ -72,6 +72,7 @@ def turnOffFetch():
 
 
 if __name__ == '__main__':
+    turnOnFetch()
 
     schedule.every(2).minutes.do(check)
     schedule.every().day.at('00:00').do(turnOnFetch)
