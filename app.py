@@ -8,7 +8,7 @@ from proxy import Proxy
 app = Flask(__name__)
 
 
-@app.route('/')
+
 def fetch_and_check():
     print('Fetching and checking Proxy')
     connection = os.environ['conn']
@@ -22,7 +22,6 @@ def fetch_and_check():
     return {"code": 200}
 
 
-@app.route('/fetch')
 def fetch():
     print('Fetching Proxy...')
     connection = os.environ['conn']
@@ -34,7 +33,6 @@ def fetch():
     return {"code": 200}
 
 
-@app.route('/check')
 def check():
     print('Checking Proxy...')
     connection = os.environ['conn']
@@ -47,4 +45,4 @@ def check():
 
 
 if __name__ == '__main__':
-    app.run()
+    fetch_and_check()
