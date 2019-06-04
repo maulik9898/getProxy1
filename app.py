@@ -10,7 +10,6 @@ import schedule
 import time
 
 
-
 def fetch_and_check():
     print('Fetching and checking Proxy')
     connection = os.environ['conn']
