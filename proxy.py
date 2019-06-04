@@ -94,7 +94,7 @@ class Proxy(object):
         print('Total Proxies : ',len(plist.val()))
         with concurrent.futures.ThreadPoolExecutor(max_workers=CONNECTIONS) as executor:
             future_to_url = (executor.submit(self.is_bad_proxy, p.val()['ip'] + ':' + str(p.val()['port']), p.key()) for
-                             p in plist.each())
+                             p in plist.each() if 'ip' in p.val())
             time1 = time.time()
             for future in concurrent.futures.as_completed(future_to_url):
                 try:

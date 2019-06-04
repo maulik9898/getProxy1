@@ -1,13 +1,12 @@
 import datetime
 import os
+import sys
 
 from flask import Flask
 
 from proxy import Proxy
 
 app = Flask(__name__)
-import schedule
-import time
 
 
 def fetch_and_check():
@@ -46,9 +45,13 @@ def fetch():
 
 
 if __name__ == '__main__':
-    schedule.every(1).minutes.do(fetch_and_check)
-    while True:
-        # Checks whether a scheduled task
-        # is pending to run or not
-        schedule.run_pending()
-        time.sleep(1)
+    # schedule.every(1).minutes.do(fetch_and_check)
+    # while True:
+    #     # Checks whether a scheduled task
+    #     # is pending to run or not
+    #     schedule.run_pending()
+    #     time.sleep(10)
+
+    fetch_and_check()
+    python = sys.executable
+    os.execl(python, python, *sys.argv)
