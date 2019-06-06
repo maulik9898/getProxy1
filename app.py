@@ -75,7 +75,7 @@ def turnOffFetch():
 
 if __name__ == '__main__':
     turnOnFetch()
-    fetch()
+    fetch_and_check()
 
     schedule.every(30).minutes.do(check)
 
