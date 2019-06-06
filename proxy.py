@@ -91,6 +91,7 @@ class Proxy(object):
     def check(self, CONNECTIONS=10):
         out = []
         plist = self.db.child('ip').get()
+        no = len(plist.val())
         print('Total Proxies : ',len(plist.val()))
         with concurrent.futures.ThreadPoolExecutor(max_workers=CONNECTIONS) as executor:
             future_to_url = (executor.submit(self.is_bad_proxy, p.val()['ip'] + ':' + str(p.val()['port']), p.key()) for
@@ -99,13 +100,14 @@ class Proxy(object):
             for future in concurrent.futures.as_completed(future_to_url):
                 try:
                     data = future.result()
+                    if data:
+                        no = no - 1
                 except Exception as exc:
                     data = str(type(exc))
 
             time2 = time.time()
 
-        plist = self.db.child('ip').get()
-        print('Total active Proxies : ', len(plist.val()))
+        print('Total active Proxies : ', no)
         print(f'Time took to check proxies {time2 - time1:.2f} s')
 
     def getdb(self):

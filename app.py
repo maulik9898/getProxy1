@@ -75,28 +75,19 @@ def turnOffFetch():
 
 if __name__ == '__main__':
     turnOnFetch()
+    fetch()
 
     schedule.every(30).minutes.do(check)
-    schedule.every().day.at('00:00').do(turnOnFetch)
-    schedule.every().day.at('00:30').do(turnOffFetch)
-    schedule.every().day.at('02:00').do(turnOnFetch)
-    schedule.every().day.at('02:30').do(turnOffFetch)
-    schedule.every().day.at('04:00').do(turnOnFetch)
-    schedule.every().day.at('04:30').do(turnOffFetch)
-    schedule.every().day.at('05:00').do(turnOnFetch)
-    schedule.every().day.at('05:30').do(turnOffFetch)
+
     schedule.every().day.at('06:00').do(turnOnFetch)
-    schedule.every().day.at('06:30').do(turnOffFetch)
+    schedule.every().day.at('06:58').do(turnOffFetch)
     schedule.every().day.at('07:00').do(turnOnFetch)
-    schedule.every().day.at('07:30').do(turnOffFetch)
+    schedule.every().day.at('07:58').do(turnOffFetch)
     schedule.every().day.at('08:00').do(turnOnFetch)
-    schedule.every().day.at('08:30').do(turnOffFetch)
+    schedule.every().day.at('08:58').do(turnOffFetch)
     schedule.every().day.at('09:00').do(turnOnFetch)
-    schedule.every().day.at('09:30').do(turnOffFetch)
-    schedule.every().day.at('10:00').do(turnOnFetch)
-    schedule.every().day.at('10:30').do(turnOffFetch)
-    schedule.every().day.at('11:00').do(turnOnFetch)
-    schedule.every().day.at('11:30').do(turnOffFetch)
+    schedule.every().day.at('09:58').do(turnOffFetch)
+
 
     while True:
         # Checks whether a scheduled task
